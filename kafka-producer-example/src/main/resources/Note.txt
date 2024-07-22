@@ -1,0 +1,24 @@
+--Main
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic javatechie-topic --partitions 3 --replication-factor 1
+
+   *Produser
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie-topic
+       -> From File
+     .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie-topic  <PATH OF FILE
+     .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie-topic  </user/d:drive/kk.csv
+
+   
+   *Consumer
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javatechie-topic --from-beginning
+
+---List of topic
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092  --describe --topic javatechie-topic
+
+zookeeper :2181
+kafka/Bootstrap server server/broker :9092
+
